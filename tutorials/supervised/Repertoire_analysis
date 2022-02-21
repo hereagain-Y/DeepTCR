@@ -1,0 +1,13 @@
+from DeepTCR.DeepTCR import DeepTCR_WF
+
+DTCR_WF = DeepTCR_WF('New_rep')
+
+#Load Data from directories
+DTCR_WF.Get_Data(directory='/users/dyao/DeepTCR/Data/Rudqvist',Load_Prev_Data=False,aggregate_by_aa=True,
+               aa_column_beta=1,count_column=2,v_beta_column=7,d_beta_column=14,j_beta_column=21)
+               
+DTCR_WF.Get_Train_Valid_Test(test_size=0.25)
+DTCR_WF.Train()
+
+DTCR_WF.Representative_Sequences()
+print(DTCR_WF.Rep_Seq['Control'])
